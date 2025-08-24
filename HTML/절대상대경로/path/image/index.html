@@ -1,0 +1,33 @@
+<style>
+  body > div {
+    display: flex;
+    flex-direction: column;
+  }
+  div > div {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  div + div {
+    margin-top: 20px;
+  }
+</style>
+<body>
+  <div>
+    <div class="spring">
+      <img src="../../path/spring/1.png"> <!-- 절대경로 -->
+      <img src="http://127.0.0.1:5500/절대상대경로/path/spring/2.png"> <!-- 상대경로 -->
+    </div>
+    <div class="summer">ㄴ
+      <img src="../summer/1.png">
+      <img src="../../path/summer/2.png">
+    </div> 
+    <div class="fall">
+      <img src="http://127.0.0.255:5500/절대상대경로/path/fall/1.png">
+      <img src="http://127.0.0.100:5500/절대상대경로/path/fall/2.png">
+    </div>
+    <div class="winter">
+      <img src="http://localhost:5500/절대상대경로/path/winter/1.png">
+      <img src="http://192.168.0.67:5500/절대상대경로/path/winter/2.png">
+    </div>
+  </div>
+</body>

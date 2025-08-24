@@ -1,0 +1,27 @@
+<body>
+    <div class="container">
+        <div class="d-grid">
+            <button type="button" class="btn btn-primary btn-block">
+                이미지 불러오기
+            </button>
+        </div>
+        <div class="target"></div>
+    </div>
+    <script>
+        const target = document.querySelector('.target')
+        document.querySelector('button').addEventListener('click', () => {
+            const img2 = target.querySelector('img');
+            if (img2) {
+                target.removeChild(img2);
+            }
+
+            const img = document.createElement('img');
+            target.appendChild(img);
+
+            const num = parseInt(Math.random() * 6 + 1); // Math.floor(Math.random() * 6) +1;
+            img.setAttribute('src', `http://ggoreb.com/images/choco/${num}.jpg`);
+            //  = `http://ggoreb.com/images/choco/${num}.jpg`; // setAttribute
+
+        });
+    </script>
+</body>

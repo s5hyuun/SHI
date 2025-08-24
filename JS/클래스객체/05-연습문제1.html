@@ -1,0 +1,23 @@
+<body>
+    <script>
+        class User {
+            constructor(fName, lName, age){
+                // 전역변수 생성
+                this.fName = fName;
+                this.lName = lName;
+                this.age = age;
+            }
+            // set/get 전역변수명 
+            get age() {
+                return this._age;
+            }
+            set age(age) {
+                if(age < 0) age = 0;
+                this._age = age;
+            }
+        }
+        //                        생성자
+        const user = new User('Steve', 'Job', -1);
+        console.log(user.age);
+    </script>
+</body>

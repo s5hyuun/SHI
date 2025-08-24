@@ -1,0 +1,32 @@
+<body>
+    <script>
+        class Shape {
+            constructor(width, height, color) {
+                this.width = width;
+                this.height = height;
+                this.color = color;
+            }
+            draw() {
+                console.log(`draw`);
+            }
+            getArea() {
+                console.log(`getArea`)
+            }
+        }
+        class Rectangle extends Shape {
+            draw() {
+                return "drawing " + this.color;
+            }
+            getArea() {
+                return this.width * this.height;
+            }
+        }
+
+        class Triangle extends Shape {
+        }
+
+        const rect = new Rectangle(20, 20, 'blue');
+        console.log(rect.draw());
+        console.log(rect.getArea());
+    </script>
+</body>

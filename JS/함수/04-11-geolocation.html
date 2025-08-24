@@ -1,0 +1,12 @@
+<body>
+    <script>
+        function callback(position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            const label = document.querySelector('.label');
+            label.innerHTML += `<h2>위도: ${lat}</h2>`;
+            label.innerHTML += `<h2>경도: ${lng}</h2>`;
+        }
+        navigator.geolocation.getCurrentPosition(callback);
+    </script>
+</body>

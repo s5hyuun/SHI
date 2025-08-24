@@ -1,0 +1,23 @@
+<body>
+    <script>
+        const array = [6, 7, 8, 9, 10, 1, 2, 3, 4, 5];
+
+        const newArray = array.sort((a, b) => {
+            const isAOdd = a % 2 !== 0;
+            const isBOdd = b % 2 !== 0;
+
+            // 홀수 | 짝수 구분
+            if (isAOdd && !isBOdd) return -1; // 홀수 먼저
+            if (!isAOdd && isBOdd) return 1;  // 짝수 나중
+
+            // 둘 다 홀수면 오름차순
+            if (isAOdd && isBOdd) return a - b;
+
+            // 둘 다 짝수면 내림차순
+            if (!isAOdd && !isBOdd) return b - a;
+        });
+
+        console.log(`${newArray}`);
+
+    </script>
+</body>

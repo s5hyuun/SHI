@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>ZXing QR 리더기 (모듈 + 리사이즈)</title>
+  <script type="module" src="zxing-drop-reader.js"></script>
+</head>
+<body>
+  <h2>QR 이미지를 드래그해서 올려보세요</h2>
+  <div id="drop-zone"></div>
+  <div id="qr-output" style="margin-top: 10px; font-weight: bold;"></div>
+
+  <script type="module">
+    import { initZxingQrDropReader } from './zxing-drop-reader.js';
+
+    initZxingQrDropReader({
+      dropTargetSelector: '#drop-zone',
+      outputSelector: '#qr-output'
+    });
+
+    window.onQrCodeDecoded = (text) => {
+      // https://m.dhlottery.co.kr/qr.do?method=winQr&v=1183q141820323543q111527313240q041517232736q041517232731 + 'q'+ lotto
+      text = text + 'q'  + lotto;
+      // location = text; // 지정 url로 접속
+      // 첫 번째 방식
+      const arr = text.split('&v='); // ['...winQr' ,'1183q14182...']
+      arr[1] = arr[1].substring(4);
+      text = arr[0] +'&v=1184' +arr[1];
+
+      // 또 다른 방식 
+      // text = text.replace(text.substring(text.indexOf("&v=")+3, text.indexOf("&v=")+7), 1184);
+      // console.log(text);
+      open(text, '', 'width=200px, height=300px');
+    };
+    
+      // 추첨 번호 가져오기 - 데이터 수집
+      // 추첨번호 제공 API 
+      // http://ggoreb.com/api/lotto.jsp
+      const url = 'http://ggoreb.com/api/lotto.jsp'
+
+      let lotto = ''; // 전역변수로 선언
+
+      fetch(url).then(function a(msg) {
+        console.log(msg);
+        // 데이터 가공
+        return msg.json();
+      }).then(function b(msg){
+        console.log(msg);
+        lotto= msg.num1 + msg.num2 + msg.num3 + msg.num4 + msg.num5 + msg.num6;
+        console.log(lotto);
+
+      });
+  </script>
+</body>
+</html>

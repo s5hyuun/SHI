@@ -1,0 +1,25 @@
+<body>
+    <script>
+        const article = {
+            num: 1,
+            title: 'A',
+            reply: [
+                { num: 3, title: 'A-3' },
+                { num: 2, title: 'A-2' },
+                { num: 1, title: 'A-1' }
+            ]
+        };
+        for(let key in article){
+            let value = article[key]; // article.key 에러
+            let type = typeof value;
+            if(type =='object'){
+                for(let key2 in value){
+                    console.log(value[key2]);
+                    
+                }
+            }else {
+                console.log(value);
+            }
+        }
+    </script>
+</body>

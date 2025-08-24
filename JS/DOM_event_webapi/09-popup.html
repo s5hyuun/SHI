@@ -1,0 +1,29 @@
+<body>
+    <!-- CDN -->
+    <script src="http://ggoreb.com/dt/js/cookie.js"></script>
+    <script>
+        const value = getCookie("popup");
+        //  false  // 쿠키 X > popup
+        if(!value) {
+            open('09-child.html', '', 'width=300, height=200');
+        }
+        // console.log(value);
+        // setCookie("popup", "done", 60*24);
+
+        // // 쿠키값 
+        // const cookie = document.cookie;
+        // console.log(cookie);
+        // const cs = cookie.split("; ");
+        // console.log(cs);
+        // for (let c of cs) {
+        //     const [k, v] = c.split("=");
+        //     if(k == "key2"){
+        //         console.log(v);
+        //         break;
+        //     }
+        // }
+
+        // 문서, 팝업창의 이름, 창의 크기 등 옵션
+        // open('http://naver.com', '', 'width=300, height=200');
+    </script>
+</body>

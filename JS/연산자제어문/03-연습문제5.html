@@ -1,0 +1,22 @@
+<body>
+    <script>
+        const map = ['가위', '바위', '보'];
+        const player = 0;
+        const com = parseInt(Math.random() * 3);
+        console.log(`player: ${map[player]}, com: ${map[com]}`);
+        
+        let result = '';
+        // (player + 1) % 3 == com  > com 승
+
+        /* 코드 */
+        if((player + 1) % 3 == com){
+            result = 'com 승';
+        } else if(player == com){
+            result = '무승부';
+        } else {
+            result = 'player 승';
+        }
+
+        console.log(`결과: ${result}`);
+    </script>
+</body>

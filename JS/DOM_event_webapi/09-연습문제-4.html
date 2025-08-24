@@ -1,0 +1,19 @@
+<body>
+    검색어 입력 : <input type="text" name="search">
+    <script>
+        const input = document.querySelector('[name=search]');
+        input.addEventListener('keypress', (e) => {
+            console.dir(e);
+            if(e.keyCode == 32){
+                input.value += ", #";
+            }
+        });
+
+        input.addEventListener('focus', (event) => {
+            let search = event.target.value;
+            if(search.length == 0){
+                event.target.value = '#';
+            }
+        });
+    </script>
+</body>

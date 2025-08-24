@@ -1,0 +1,32 @@
+<body>
+    <div id="show"></div>
+    <script>
+        const show = document.querySelector("#show");
+        const getHen = function getHen() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    show.innerHTML += '닭'
+                    resolve('닭');
+                }, 1000);
+            })
+        };
+        const getEgg = function getEgg() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    show.innerHTML += ' >> 계란'
+                    resolve('>> 계란');
+                }, 1000);
+            })
+        };
+        const cook = function cook() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    show.innerHTML += ' >> 후라이'
+                }, 1000);
+            })
+        };
+        getHen()
+            .then(getEgg)
+            .then(cook);
+    </script>
+</body>

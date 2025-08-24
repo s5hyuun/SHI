@@ -1,0 +1,35 @@
+<style>
+    .container {
+        display: flex;
+        height: 150px;
+        border: 1px solid gray;
+        flex-direction: row-reverse;
+        align-items:flex-end;
+        /* justify-content: space-between; 간 중간에 공백 만들어주기 */
+
+    }
+
+    .container>div {
+        flex: 1;
+        width: 100px;
+        height: 50px;
+        background-color: lightblue;
+        text-align: center;
+        line-height: 50px;
+        border: 1px solid navy;
+
+    }
+
+    .container> :nth-child(2) {
+        flex: 1;
+        /*1: 2: 1*/
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+    </div>
+</body>

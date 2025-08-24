@@ -1,0 +1,11 @@
+<body>
+    <img src="http://placecats.com/millie/300/150" alt="">
+</body>
+<script>
+    const imgs = document.querySelectorAll('img')
+    imgs.forEach((img) => {
+        img.addEventListener('contextmenu', (event) => {
+            event.preventDefault() // 마우스 우클릭 시 발생하는 이벤트
+        });
+    });
+</script>
