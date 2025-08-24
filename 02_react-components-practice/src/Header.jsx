@@ -1,5 +1,5 @@
 function Header() {
-  return (<header class="header" className={Header}>
+  return (<header class="header">
     <div class="brand">
       <span class="dot" aria-hidden="true"></span>
       <span class="title">Components Practice</span>
