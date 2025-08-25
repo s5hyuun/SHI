@@ -8,6 +8,11 @@ import Header from './Header';
 const Nav = (props) => 
     <nav>
       <ul>
+        {/* {
+          props.list.map((v, i) => {
+            return <li key ={i}><a href="1.html">{v}</a></li>
+          })
+        } */}
         <li><a href={props.a1}>{props.a}</a></li>
         <li><a href="2.html">{props.b}</a></li>
         <li><a href="3.html">{props.c}</a></li>
@@ -25,11 +30,11 @@ const Profile = (props) => {
       {
         // [10, 20, 30]
         // [<h2> 10</h2>, <h2> 20</h2>, <h2> 30</h2>]
-        props.name.map((v) => {
+        props.name.map((v) => { // v, i
           // {v} : 값 출력 
           // v : v 출력 
           // JSX 내에서 자바스크립트를 쓰려면 {} 중괄호 반드시 사용 
-          return <u> {v} </u>  // v > v v v 출력
+          return <u> {v} </u>  // v > v v v 출력  // <u key ={i}>
         })
       }
       
@@ -86,7 +91,7 @@ function UserInfo(props) {
 function App() {
   return (
     <>
-      <Comment author={
+      <Comment text = "글자" date = {"2025.08.25."} author={ // tex = {} date = {} > 값이 없어서 빈 것으로 출력 
         {name: "아바타", avatarUrl:"http://ggoreb.com/images/luffy.jpg"}}></Comment>
       <Header a = "WEB" b ="World wide Web!"></Header>
       <Nav a = "HTML" a1 = "http://ggoreb.com/dt/" b = "CSS" c = "JavaScript" ></Nav>

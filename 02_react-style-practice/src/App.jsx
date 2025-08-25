@@ -4,15 +4,28 @@ import sectionStyle from './InfoSection.module.css'
 function Nav() {
   const styles = {
     /* TODO: inline 스타일 CSS 작성 */
-    textDecoration:'none', padding:'8px 12px', borderRadius:'8px', color:'#333'
+    nav : {background:'white', 
+      margin:'16px',
+      borderRadius:'12px',
+      border:'1px solid #eee',},
+    menu : {display:'flex',
+      gap:'12px',
+      padding:'12px 16px',},
+    a : {textDecoration:"none",
+      padding:"8px 12px",
+      borderRadius:"8px",
+      color:"#333", }
+    
   }
+
+    
   return (
     /* TODO: inline 스타일 CSS 적용 */
-    <nav style={{background:'white', margin:'16px', borderRadius:'12px', border:'1px solid #eee'}}>
-      <div style={{display:'flex', gap:'12px', padding:'12px 16px'}}>
-        <a style={styles} href="#">홈</a>
-        <a style={styles} href="#">가이드</a>
-        <a style={styles} href="#">문의</a>
+    <nav style={styles.nav}>
+      <div style={styles.menu}>
+        <a style={styles.a} href="#">홈</a>
+        <a style={styles.a} href="#">가이드</a>
+        <a style={styles.a} href="#">문의</a>
       </div>
     </nav>
   );
