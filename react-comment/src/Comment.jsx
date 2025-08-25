@@ -14,15 +14,15 @@ function Comment(props) {
             </div>
 
 
-            <Card style={{ width: '18rem' }}>
-                <Card.Body>
-                    <Card.Title>{props.name}</Card.Title>
-                    <Card.Text>
-                        {props.comment}
-                    </Card.Text>
-                    <Button variant="primary">Go somewhere</Button>
-                </Card.Body>
-            </Card>
+
+            <Card.Body>
+                <Card.Title className={styles.title}>{props.name}</Card.Title>
+                <Card.Text className={styles.text}>
+                    {props.comment}
+                </Card.Text>
+                <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+
         </div>
     )
 }

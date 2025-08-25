@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import './App.css'
 import StyleAvatar from './Avatar.module.css'
 
@@ -8,14 +9,11 @@ import Header from './Header';
 const Nav = (props) => 
     <nav>
       <ul>
-        {/* {
+        {
           props.list.map((v, i) => {
             return <li key ={i}><a href="1.html">{v}</a></li>
           })
-        } */}
-        <li><a href={props.a1}>{props.a}</a></li>
-        <li><a href="2.html">{props.b}</a></li>
-        <li><a href="3.html">{props.c}</a></li>
+        }
       </ul>
     </nav>
 
@@ -89,12 +87,19 @@ function UserInfo(props) {
 
 
 function App() {
+  const [list, setList] = useState(['HTML', 'CSS', 'HTML']);
   return (
     <>
       <Comment text = "글자" date = {"2025.08.25."} author={ // tex = {} date = {} > 값이 없어서 빈 것으로 출력 
         {name: "아바타", avatarUrl:"http://ggoreb.com/images/luffy.jpg"}}></Comment>
+        
       <Header a = "WEB" b ="World wide Web!"></Header>
-      <Nav a = "HTML" a1 = "http://ggoreb.com/dt/" b = "CSS" c = "JavaScript" ></Nav>
+      <button onClick={()=> {
+        list.push(1);
+        const list2 = [...list]; // 참조자료형 (주소값 공유)
+        setList(list2);
+      }}>추가</button>
+      <Nav list ={list} ></Nav>
       <Profile count={123} text={true} name={[10, 20, 30]}></Profile>
 
     </>
