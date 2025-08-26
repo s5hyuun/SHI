@@ -19,11 +19,13 @@ const Nav = (props) => {
                 {
                   i == index ?
                     <>
-                    <input value={update} onChange={(e) => {
-                      setUpdate(e.target.value);
-                    }}></input>
-                    <button onClick={()=> {
-                      setIndex(i)
+                      <input value={update} onChange={(e) => {
+                        setUpdate(e.target.value);
+                      }}></input>
+                      <button onClick={() => {
+                        setIndex(i)
+                        setItems(prev => prev.map((item, idx) => idx === i ? update : item)
+                        );
                       }}> 저장</button>
                     </> :
                     <>
@@ -121,7 +123,7 @@ function App() {
     <>
 
       <Header a="WEB" b="World wide Web!"></Header>
-      <input type="text" value={value} onChange={(e) => {
+      {/* <input type="text" value={value} onChange={(e) => {
         setValue(e.target.value); // 문자열 (기본 자료형) 
       }}></input>
 
@@ -129,26 +131,49 @@ function App() {
         list.push(value);
         const list2 = [...list]; // 참조자료형 (주소값 공유)
         setList(list2);
-      }}>추가</button>
+      }}>추가</button> */}
+      <input
+  value={value}
+  onChange={(e) => setValue(e.target.value)}
+  onKeyDown={(e) => {
+    // 한글 IME 조합 중 Enter가 들어오면 무시
+    if (e.nativeEvent.isComposing || e.keyCode === 229) return;
+
+    if (e.key === "Enter") {
+      e.preventDefault(); // 폼 submit 방지
+      const v = value.trim();
+      if (!v) return;
+      setList(prev => [...prev, v]);
+      setValue("");
+    }
+  }}
+/>
+
+<button
+  type="button"
+  onClick={() => {
+    const v = value.trim();
+    if (!v) return;
+    setList(prev => [...prev, v]);
+    setValue("");
+  }}
+>
+  추가
+</button>
+
+
+
+
+
 
       {/* 1 */}
-      {/* <Nav list={list} deleteFunc={(i) => {
+      <Nav list={list} deleteFunc={(i) => {
         // let list2 = [...list];
         // splice(인덱스, 개수)
         // 배열 API filter()
         list.splice(i, 1) // i 번째 값 하나만 삭제  // list2.splice(i, 1) 수정 
         setList([...list]);   // let list2 = [...list]; 사용 경우 > setlList(list2)
-      }}></Nav> */}
-
-      {/* 2 */}
-      <Nav
-        list={list}
-        deleteFunc={(i) => {
-          const list2 = list.filter((_, index) => index !== i);
-          setList(list2);
-        }}
-      ></Nav>
-
+      }}></Nav>
 
 
 
