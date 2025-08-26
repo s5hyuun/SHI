@@ -10,6 +10,13 @@ function App() {
   const addItem = () => {
     if (input.trim() === "") return;
     if (items.indexOf(input) == -1) {
+
+      // 중복, 배열의 요소 중 동일한 값이 있는지 확인
+      if(items.includes(input)){
+        // alert("동일한 값이 있어서 추가 안 됨!")
+        return;
+      }
+
       setItems([...items, input]);
     setInput("");
     };
@@ -38,7 +45,7 @@ function App() {
         style={styles.input}
         value={input}
         onChange={(e) => setInput(e.target.value)}
-        onKeyDown={(e) => {if(e.key == "Enter"){
+        onKeyDown={(e) => {if(e.key == "Enter"){ // onKeyDown / onKeyUp 상관 X
           addItem();
         }}}
         placeholder="아이템 입력..."
@@ -51,9 +58,22 @@ function App() {
       {/* 목록 */}
       {/* 전체 삭제 버튼 만들기 */}
       <ItemList items={items} onUpdate={updateItem} onDelete={deleteItem} />
-      <button style={styles.button} onClick={(e) => {
+      <button style={styles.button} onClick={() => {
         setItems([]);
       }}>전체삭제</button>
+
+      {/* 빈 목록 메시지 표시 v2 */}
+      {/* {
+        items.length > 0 ?
+        <ItemList items={items} onUpdate={updateItem} onDelete={deleteItem} /> :
+
+        <p>현재 아이템이 없습니다.</p>
+      } */}
+
+      {/* 전체삭제 v2 */}
+      {/* <button style ={styles.button} onClick={() => {
+        setItems([]);
+      }}>삭제 </button> */}
     </div>
   );
 }

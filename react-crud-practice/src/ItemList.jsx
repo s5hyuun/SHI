@@ -1,5 +1,6 @@
 import Item from "./Item";
 
+// 빈 목록 메시지 표시하기
 function ItemList({ items, onUpdate, onDelete }) {
   return (
     <ul style={styles.list}>
@@ -8,7 +9,7 @@ function ItemList({ items, onUpdate, onDelete }) {
           <Item
             key={index}
             index={index}
-            item={item}
+            item={item} // 아이템 번호 추가 v2. item={`${index+1}. ${item}`}
             onUpdate={onUpdate}
             onDelete={onDelete}
           />
