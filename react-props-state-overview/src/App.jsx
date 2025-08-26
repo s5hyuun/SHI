@@ -2,6 +2,7 @@ import { useState } from "react";
 import Child from "./Child";
 
 function App() {
+
   console.log('App 컴포넌트 렌더링');
 
 
@@ -22,6 +23,7 @@ function App() {
       </p>
 
       <button style={styles.button} onClick={() => {
+        
         // count => {num:0}
         // count는 참조자료형이라서 내부의 값을 바꾸더라도 동일한 객체 인식 
         count.num += 1;
