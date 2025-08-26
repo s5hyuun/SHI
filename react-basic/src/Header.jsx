@@ -5,9 +5,13 @@ const style = {
   backgroundColor: "lightgray"
 }
 
+// function cl(){
+//   setState(prev => prev+1)
+// }
+
 // 첫 글자 대문자
 function Header(props) {
-  console.log('Header 생성');
+  // console.log('Header 생성');
   
   const [state, setState] = useState(0); // 초깃값 설정 
   const [input, setInput] = useState('');
@@ -22,6 +26,9 @@ function Header(props) {
       <h1 onClick={() => {
         setState(prev => prev+1);
       }} >{state}</h1>
+
+      {/* <h1 onClick={() => setState(prev => prev+1)}>{state}</h1>
+      <h1 onClick={cl}> {state}</h1> */}
 
       <p style={style}>{props.b}</p>
     </header>

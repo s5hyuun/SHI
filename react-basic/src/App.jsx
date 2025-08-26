@@ -6,17 +6,47 @@ import Header from './Header';
 
 //     () => {}
 //   () => 표현식
-const Nav = (props) =>
-  <nav>
-    <ul>
-      {
-        props.list.map((v, i) => {
-          return <li key={i}><a href="1.html">{v}</a></li>
-        })
-      }
-    </ul>
-  </nav>
+const Nav = (props) => {
+  const [index, setIndex] = useState(-1);
+  const [update, setUpdate] = useState("");
+  return (
+    <nav>
+      <ul>
+        {
+          props.list.map((v, i) => {
+            return (
+              <li key={i}>
+                {
+                  i == index ?
+                    <>
+                    <input value={update} onChange={(e) => {
+                      setUpdate(e.target.value);
+                    }}></input>
+                    <button onClick={()=> {
+                      setIndex(i)
+                      }}> 저장</button>
+                    </> :
+                    <>
+                      <a href="1.html">{v}</a>
 
+                      <button onClick={() => {
+                        setIndex(i)
+                      }}>수정</button>
+
+                      <button onClick={() => {
+                        console.log('삭제: ' + i);
+                        props.deleteFunc(i);
+                      }}>삭제</button>
+                    </>
+                }
+
+              </li>)
+          })
+        }
+      </ul>
+    </nav>
+  )
+}
 
 const Profile = (props) => {
   console.log(props);
@@ -84,20 +114,34 @@ function UserInfo(props) {
   )
 }
 
-
-
 function App() {
   const [list, setList] = useState(['HTML', 'CSS', 'HTML']);
+  const [value, setValue] = useState("");
   return (
     <>
 
       <Header a="WEB" b="World wide Web!"></Header>
+      <input type="text" value={value} onChange={(e) => {
+        setValue(e.target.value); // 문자열 (기본 자료형) 
+      }}></input>
+
       <button onClick={() => {
-        list.push(1);
+        list.push(value);
         const list2 = [...list]; // 참조자료형 (주소값 공유)
         setList(list2);
       }}>추가</button>
-      <Nav list={list} ></Nav>
+
+      {/* 1 */}
+      <Nav list={list} deleteFunc={(i) => {
+        // let list2 = [...list];
+        // splice(인덱스, 개수)
+        // 배열 API filter()
+        list.splice(i, 1) // i 번째 값 하나만 삭제  // list2.splice(i, 1) 수정 
+        setList([...list]);   // let list2 = [...list]; 사용 경우 > setlList(list2)
+      }}></Nav>
+
+
+
       <Profile count={123} text={true} name={[10, 20, 30]}></Profile>
       {/* 
       <Comment text = "글자" date = {"2025.08.25."} author={ // tex = {} date = {} > 값이 없어서 빈 것으로 출력 

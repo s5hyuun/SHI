@@ -60,7 +60,7 @@ function App() {
       </Child>
     </div>
   );
-}
+} 
 
 const styles = {
   container: {
