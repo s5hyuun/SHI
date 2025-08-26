@@ -132,13 +132,23 @@ function App() {
       }}>추가</button>
 
       {/* 1 */}
-      <Nav list={list} deleteFunc={(i) => {
+      {/* <Nav list={list} deleteFunc={(i) => {
         // let list2 = [...list];
         // splice(인덱스, 개수)
         // 배열 API filter()
         list.splice(i, 1) // i 번째 값 하나만 삭제  // list2.splice(i, 1) 수정 
         setList([...list]);   // let list2 = [...list]; 사용 경우 > setlList(list2)
-      }}></Nav>
+      }}></Nav> */}
+
+      {/* 2 */}
+      <Nav
+        list={list}
+        deleteFunc={(i) => {
+          const list2 = list.filter((_, index) => index !== i);
+          setList(list2);
+        }}
+      ></Nav>
+
 
 
 
