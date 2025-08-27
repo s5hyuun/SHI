@@ -1,6 +1,9 @@
+import { useState } from "react";
+
 export default function InputMirror(){
 
   {/* TODO: text라는 문자열 상태를 만들고 초기값을 빈 문자열로 설정하세요. */}
+  const [text, setText] = useState("");
 
   return (
     <section>
@@ -11,12 +14,14 @@ export default function InputMirror(){
         <input
           type="text"
           placeholder="글자를 입력하세요"
+          value = {text}
+          onChange={(e) => setText(e.target.value)}
         />
       
       </div>
       <div>
         {/* TODO: 입력한 값을 화면에 출력하세요. */}
-        결과: <strong>OO</strong>
+        결과: <strong>{text}</strong>
       </div>
     </section>
   )

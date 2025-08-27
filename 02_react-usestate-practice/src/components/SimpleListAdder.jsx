@@ -1,10 +1,19 @@
+import { useState } from "react";
+
 export default function SimpleListAdder(){
 
   {/* TODO: 배열 상태 items를 만들고 초기값은 빈 배열로 설정하세요. */}
+  const [items, setItems] = useState([]);
 
   {/* TODO: 문자열 상태 text를 만들고 초기값은 빈 문자열로 설정하세요. */}
+  const [text, setText] = useState("");
   
   {/* TODO: 입력된 text를 리스트에 추가하는 add 함수를 작성하세요. */}
+  const add = () => {
+    if (!text.trim()) return;
+    setItems([...items, text]);
+    setText("");
+  };
 
   return (
     <section>
@@ -20,9 +29,15 @@ export default function SimpleListAdder(){
         <input
           type="text"
           placeholder="항목 입력"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          onKeyDown = {(e) => {
+            if (e.key === "Enter") add();
+          }}
         />
 
         {/* TODO: 버튼을 클릭했을 때 add 함수를 실행하세요. */}
+        <button onClick ={add}>추가</button>
       
       </div>
       <ul className="list">
@@ -31,7 +46,12 @@ export default function SimpleListAdder(){
           <li> 태그의 className을 item으로 지정하세요.
           ex) <li className="item">항목</li>
         */}
+        {items.map((item, i) => (
+          <li key = {i} className="item">
+            {item}
+          </li>
+        ))}
       </ul>
     </section>
-  )
+  );
 }
