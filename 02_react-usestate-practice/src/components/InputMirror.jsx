@@ -14,8 +14,9 @@ export default function InputMirror(){
         <input
           type="text"
           placeholder="글자를 입력하세요"
-          value = {text}
-          onChange={(e) => setText(e.target.value)}
+          value = {text} 
+          onChange={(e) => setText(e.target.value)}  // (e) => {const value = e.target.value; 
+                                                    // setText(value);} 
         />
       
       </div>

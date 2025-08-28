@@ -11,7 +11,7 @@ export default function ToggleSwitch(){
       <div className="center">
 
         {/* TODO: 상태에 따라 'ON' 또는 'OFF'를 표시하세요. */}
-        <span className="badge">{on ? "ON" : "OFF"}</span>
+        <span className="badge">{on ? "ON" : "OFF"}</span> 
         
         {/* 
           TODO: 상태를 반대로 토글하고 

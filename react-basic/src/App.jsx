@@ -23,9 +23,7 @@ const Nav = (props) => {
                         setUpdate(e.target.value);
                       }}></input>
                       <button onClick={() => {
-                        setIndex(i)
-                        setItems(prev => prev.map((item, idx) => idx === i ? update : item)
-                        );
+                        // setIndex(i)
                       }}> 저장</button>
                     </> :
                     <>
@@ -119,6 +117,7 @@ function UserInfo(props) {
 function App() {
   const [list, setList] = useState(['HTML', 'CSS', 'HTML']);
   const [value, setValue] = useState("");
+  
   return (
     <>
 
@@ -136,7 +135,6 @@ function App() {
   value={value}
   onChange={(e) => setValue(e.target.value)}
   onKeyDown={(e) => {
-    // 한글 IME 조합 중 Enter가 들어오면 무시
     if (e.nativeEvent.isComposing || e.keyCode === 229) return;
 
     if (e.key === "Enter") {
@@ -160,11 +158,6 @@ function App() {
 >
   추가
 </button>
-
-
-
-
-
 
       {/* 1 */}
       <Nav list={list} deleteFunc={(i) => {
