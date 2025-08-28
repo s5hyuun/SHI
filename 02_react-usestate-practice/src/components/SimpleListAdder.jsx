@@ -66,7 +66,7 @@ export default function SimpleListAdder(){
         {/* 2 */}
         {
           items.map((v) => {
-            return (<li className="item">{v}</li>)
+            return (<li className="item">{v}</li>) // map(return())
             
           })
         }
