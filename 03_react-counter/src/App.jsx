@@ -1,12 +1,18 @@
 import './App.css';
 import styles from './App.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState, useRef } from 'react';
 
 function Counter() {
+  const value = useRef(0);
+  const h1 = useRef(); 
   const [count, setCount] = useState(0);
 
   const onClick = () => {
+    h1.current.style.backgroundColor="yellow"
+    console.log(value);
+
     setCount(count + 1);
+    value.current += 1;
   }
   
   const [color, setColor] = useState('red');
@@ -33,12 +39,12 @@ function Counter() {
 
     const no_memo = () => {
     console.log("factorial 연산");
-    let result = factorial(count);
+    let result = (count);
     return result;
   };
   const memo = useMemo(() => {
     console.log("factorial 연산");
-    let result = factorial(count);
+    let result = (count);
     return result;
   }, [count]);
 
