@@ -8,7 +8,7 @@ function Counter() {
   const onClick = () => {
     setCount(count + 1);
   }
-
+  
   const [color, setColor] = useState('red');
   const onClick2 = () => {
     setColor('blue');
@@ -31,9 +31,21 @@ function Counter() {
     console.log(`Counter 컴포넌트 생성, color 값 변경 될 때 실행`);
   }, [color]);
 
+    const no_memo = () => {
+    console.log("factorial 연산");
+    let result = factorial(count);
+    return result;
+  };
+  const memo = useMemo(() => {
+    console.log("factorial 연산");
+    let result = factorial(count);
+    return result;
+  }, [count]);
+
   return (
     <div>
       <h1>{count}</h1>
+      <h1>{memo}</h1>
       <button onClick={onClick}>Click</button>
       <button onClick={onClick2}>Click</button>
     </div>
@@ -41,40 +53,66 @@ function Counter() {
 }
 
 function App() {
-  const [toc, setToc] = useState([]); // undefined
-  // description, icon,
+  const [toc, setToc] = useState([]);
   const [hide, setHide] = useState(false);
+
+  const [weather, setWeather] = useState([]);
+  const [hide2, setHide2] = useState(false);
+
   const onClick = () => {
     setHide(!hide);
     fetchToc();
   };
 
-  async function fetchToc(){
+  const onClick2 = () => {
+    setHide2(!hide2);
+    fetchToc2();
+  };
+
+  async function fetchToc() {
     const url = "http://ggoreb.com/api/toc.jsp";
-    
-    // 비동기를 동기처럼 동작시킴  await 또는 then()
-    const res = await fetch(url); // 가져오기
-    const data = await res.json(); // 사용하기 쉬운 형태로 변형
-    // toc = ["html", "css", "javascript"]
-    const result = data.map(v => v.title);
+    //비동기를 동기처럼 동작시킴 - await 또는 then()
+    const res = await fetch(url); //가져오기
+    const data = await res.json(); //사용하기 쉬운 형태로 변형
+    const result = data.map((v) => v.title);
     setToc(result);
   }
 
+  async function fetchToc2() {
+    const url = "https://api.openweathermap.org/data/2.5/weather?lat=35.1728639953646&lon=129.130680529903&units=metric&appid=6edee3c2aa182bc44d18ccb204c98a31";
+    //비동기를 동기처럼 동작시킴 - await 또는 then()
+    const res = await fetch(url); //가져오기
+    const data = await res.json(); //사용하기 쉬운 형태로 변형
+    const description = data.weather[0].description;
+    const icon = "http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png";
+    const temp = data.main.temp;
+    setWeather([description, icon, temp]);
+    // result={}
+    // result.description = data.weather[0].description;
+    // result.icon = data.weather[0].icon;
+    // result.temp = data.main.temp;
+  }
 
   return (
     <div className={styles.App}>
-      <button onClick={onClick}>show / Hide</button>
-      {hide ? null :  <Counter />}
+      <button onClick={onClick}>Show / Hide</button>
+      {!hide ? <Counter /> : null}
+
       <ul>
-        {
-          // 현재 toc는 undefined 이기 때문에 오류 
-          toc.map(v => <li>{v}</li>)
-        }
+        {toc.map(v => <li>{v}</li>)}
       </ul>
-      {/* <p>
-        {weather.descripton} / {weather.temp} / {img scr={`http://openweathermap.org/img/wn/${weather.icon}@2x.png`}}
-      </p> */}
-    
+      <button onClick={onClick2}>날씨 보기</button>
+      {!hide2 ?
+        <div>
+          <span>{weather[0]}/</span>
+          <span>{weather[2]}/</span>
+          <span><img src={weather[1]} /></span>
+        </div> :
+        null}
+      <p>
+        {/*{weather.description} / {weather.temp} /*/}
+        {/* <img src="http://openweathermap.org/img/wn/"{weather.icon}".icon+@2x.png"/> */}
+      </p>
     </div>
   )
 }
