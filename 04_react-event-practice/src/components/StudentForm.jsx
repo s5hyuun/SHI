@@ -22,13 +22,16 @@ function StudentForm() {
   const handleSubmit = (event) => {
 
     // TODO: 기본 제출 막기
+    event.preventDefault();
 
     // TODO: 이름이 2자 이상 5자 이하 조건이 맞으면 alert 로 "제출 성공"
     //       조건이 맞지 않으면 error 상태에 "이름은 2자 이상 5자 이하로 입력해야 합니다." 입력
     if (name.length>=2 && name.length <= 5) {
-      alert("성공")
+      alert("제출 성공")
     }
-    else {setError("이름은 2자 이상 5자 이하로 입력해야 합니다.")}
+    else {
+      setError("이름은 2자 이상 5자 이하로 입력해야 합니다.")
+    }
 
   };
 
@@ -39,7 +42,10 @@ function StudentForm() {
       
 
       // TODO: onSubmit 이벤트 핸들러 작성
-      onSubmit={(e)=>{handleSubmit(e)}}
+      onSubmit={(e)=>{
+        e.preventDefault(); // 실행되고 새로고침이 되는 부분 방지
+        handleSubmit(e)
+      }}
       
 
     >

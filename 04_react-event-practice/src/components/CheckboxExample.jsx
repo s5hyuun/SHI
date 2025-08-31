@@ -19,7 +19,7 @@ function CheckboxExample() {
           // TODO: onChange 핸들러 작성
           onChange={(e)=>{
             setChecked(e.target.checked);
-        }}
+          }}
         />
         동의합니다
       </label>
@@ -27,9 +27,8 @@ function CheckboxExample() {
         체크 상태: 
         
         {/* TODO: state에 따라 ✅ 또는 ❌ 표시 */}
-        <span>{checked ? "✅" : "❌" }</span>
+        {checked ? "✅" : "❌" }
 
-       
       </p>
     </div>
   );
