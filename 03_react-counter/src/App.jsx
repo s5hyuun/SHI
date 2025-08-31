@@ -108,13 +108,14 @@ function App() {
         {toc.map(v => <li>{v}</li>)}
       </ul>
       <button onClick={onClick2}>날씨 보기</button>
-      {!hide2 ?
+      {hide2 ?
         <div>
           <span>{weather[0]}/</span>
           <span>{weather[2]}/</span>
           <span><img src={weather[1]} /></span>
         </div> :
-        null}
+        null
+        }
       <p>
         {/*{weather.description} / {weather.temp} /*/}
         {/* <img src="http://openweathermap.org/img/wn/"{weather.icon}".icon+@2x.png"/> */}

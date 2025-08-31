@@ -4,11 +4,11 @@ export default function PrevValue() {
   const [text, setText] = useState('')
 
   {/* TODO: 이전 값을 저장할 ref를 만드세요. */}
-  let value = useRef();
+  let prev = useRef("");
 
   {/* TODO: text 값이 변경될 때마다 이전 값을 저장하세요. */}
   useEffect(()=>{
-    value.current= text;
+    prev.current= text;
   }, [text]);
 
   return (
@@ -23,7 +23,7 @@ export default function PrevValue() {
       <p>현재 값: {text}</p>
 
       {/* TODO: 이전 값을 출력하세요. */}
-      <p>이전 값: {value.current}</p>
+      <p>이전 값: {prev.current}</p>
 
     </section>
   )
