@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Pure HTML — 합성 · 추출 · 객체 props</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+      .comment {
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 12px;
+      }
+      .userinfo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .badge {
+        background-color: gold;
+        color: black;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: bold;
+      }
+      .name {
+        font-weight: bold;
+      }
+      .role {
+        color: #555;
+        font-size: 14px;
+      }
+      .text {
+        margin-top: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>컴포넌트 합성 · 추출 · 객체 props</h1>
+
+    <div class="comment">
+      <h2>💬 Comment</h2>
+      <div class="userinfo">
+        <span class="badge">⭐ Gold Member</span>
+        <div>
+          <span class="name">Joy</span>
+          <span class="role">(강의자)</span>
+        </div>
+      </div>
+      <p class="text">오늘은 컴포넌트 합성과 추출을 연습해봅시다!</p>
+    </div>
+  </body>
+</html>

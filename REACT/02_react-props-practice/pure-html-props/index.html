@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pure HTML • Props Practice</title>
+    <meta name="description" content="순수 HTML을 보고 React에서 props를 설계/전달하는 연습" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body> <!-- 요구사항: 항상 <body> 포함 -->
+    <div class="app">
+      <!-- TODO(React 변환 가이드): <Header title, navLinks[]>로 변환해보세요. -->
+      <header class="header">
+        <div class="brand">
+          <span class="dot" aria-hidden="true"></span>
+          <span class="title">Props Workshop</span>
+        </div>
+        <nav class="nav" aria-label="primary">
+          <a href="#profiles">Mentors</a>
+          <a href="#plans">Plans</a>
+          <a href="#testimonials">Reviews</a>
+        </nav>
+      </header>
+
+      <!-- TODO(React 변환 가이드): <Hero badge title description ctas[]> 형태의 props로 변환 -->
+      <section class="hero">
+        <span class="badge">REACT • PROPS</span>
+        <h1>데이터를 컴포넌트로 전달하는 모든 방법</h1>
+        <p>배열/객체/문자열/숫자/children까지 — 다양한 props 전달 패턴을 익혀보세요.</p>
+        <div class="cta">
+          <a class="primary" href="#profiles">멘토 보기</a>
+          <a href="#plans">요금제</a>
+        </div>
+      </section>
+
+      <section class="section" id="profiles">
+        <h2>멘토 소개</h2>
+        <!-- TODO: <ProfileCard name role avatar bio badges[]> 컴포넌트로 변환 -->
+        <div class="grid">
+          <article class="card">
+            <div class="flex">
+              <img class="avatar" src="https://i.pravatar.cc/100?img=5" alt="A"/>
+              <div>
+                <h3>Alice</h3>
+                <p class="muted">Frontend Mentor</p>
+                <span class="badge-sm">React</span>
+                <span class="badge-sm">UI</span>
+              </div>
+            </div>
+            <p style="margin-top:8px;">10년차 프론트엔드 멘토. 실무형 코드 리뷰 제공.</p>
+          </article>
+
+          <article class="card">
+            <div class="flex">
+              <img class="avatar" src="https://i.pravatar.cc/100?img=11" alt="B"/>
+              <div>
+                <h3>Brian</h3>
+                <p class="muted">Fullstack Mentor</p>
+                <span class="badge-sm">Node</span>
+                <span class="badge-sm">DB</span>
+              </div>
+            </div>
+            <p style="margin-top:8px;">서비스 운영 관점에서의 효율과 구조를 함께 지도.</p>
+          </article>
+
+          <article class="card">
+            <div class="flex">
+              <img class="avatar" src="https://i.pravatar.cc/100?img=22" alt="C"/>
+              <div>
+                <h3>Chloe</h3>
+                <p class="muted">Design Mentor</p>
+                <span class="badge-sm">UX</span>
+                <span class="badge-sm">Design System</span>
+              </div>
+            </div>
+            <p style="margin-top:8px;">디자인 시스템과 접근성을 중점으로 코칭.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="plans">
+        <h2>요금제</h2>
+        <!-- TODO: <PlanCard name price features[]> 구성으로 변환 -->
+        <div class="grid">
+          <article class="card">
+            <h3>Starter</h3>
+            <p class="price">₩0</p>
+            <ul class="reset feature-list">
+              <li>커뮤니티 Q&A</li>
+              <li>월 1회 멘토링</li>
+              <li>샘플 코드 열람</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Pro</h3>
+            <p class="price">₩29,000</p>
+            <ul class="reset feature-list">
+              <li>주 1회 멘토링</li>
+              <li>개인 코드 리뷰</li>
+              <li>과제 피드백</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Team</h3>
+            <p class="price">₩79,000</p>
+            <ul class="reset feature-list">
+              <li>팀 코드 리뷰</li>
+              <li>프로젝트 구조 컨설팅</li>
+              <li>맞춤 워크숍</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="stats">
+        <h2>성과 지표</h2>
+        <!-- TODO: <StatsBar items=[{label,value}] /> 로 변환 -->
+        <div class="stats">
+          <div class="stat"><b>98%</b><div class="muted">만족도</div></div>
+          <div class="stat"><b>120+</b><div class="muted">프로젝트</div></div>
+          <div class="stat"><b>30K</b><div class="muted">수강생</div></div>
+          <div class="stat"><b>8yr</b><div class="muted">경력</div></div>
+        </div>
+      </section>
+
+      <section class="section" id="testimonials">
+        <h2>수강 후기</h2>
+        <!-- TODO: <TestimonialCard name role avatar>children</TestimonialCard> 로 변환 (children 연습) -->
+        <div class="grid">
+          <article class="card testimonial">
+            <div class="quote">“멘토링을 통해 코드가 간결해지고 리뷰 포인트가 명확해졌어요.”</div>
+            <div class="who">
+              <img class="avatar" src="https://i.pravatar.cc/100?img=35" alt="R1"/>
+              <div><b>Jin</b><div class="muted">Frontend Dev</div></div>
+            </div>
+          </article>
+          <article class="card testimonial">
+            <div class="quote">“실무 문제를 예제로 풀면서 바로 적용할 수 있었습니다.”</div>
+            <div class="who">
+              <img class="avatar" src="https://i.pravatar.cc/100?img=45" alt="R2"/>
+              <div><b>Mina</b><div class="muted">UI Engineer</div></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <small class="mono">© 2025 Props Workshop • All rights reserved.</small>
+      </footer>
+    </div>
+  </body>
+</html>
