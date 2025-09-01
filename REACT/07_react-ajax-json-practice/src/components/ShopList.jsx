@@ -50,7 +50,7 @@ function ShopList() {
                   return (
                     <li style={styles.product}>
 
-                      {product.name} - {product.price.toLocaleString()}
+                      {product.name} - {product.price.toLocaleString()} 원
                       <ul>
                         {product.options.map((option, i) => {
                           return (<li style={styles.option}>
