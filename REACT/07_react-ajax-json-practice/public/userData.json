@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Kim",
+      "profile": {
+        "age": 28,
+        "location": "Seoul"
+      },
+      "posts": [
+        {
+          "postId": 101,
+          "title": "React 배우기",
+          "comments": [
+            { "commentId": 1001, "text": "좋은 글이네요", "likes": 3 },
+            { "commentId": 1002, "text": "감사합니다", "likes": 1 }
+          ]
+        },
+        {
+          "postId": 102,
+          "title": "JavaScript 기초",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Lee",
+      "profile": {
+        "age": 35,
+        "location": "Busan"
+      },
+      "posts": []
+    }
+  ]
+}

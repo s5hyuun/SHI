@@ -1,0 +1,47 @@
+{
+  "categories": [
+    {
+      "id": "A",
+      "name": "전자제품",
+      "products": [
+        {
+          "productId": "A-01",
+          "name": "노트북",
+          "price": 1200000,
+          "options": [
+            { "color": "Silver", "stock": 3 },
+            { "color": "Black", "stock": 0 }
+          ],
+          "reviews": [
+            { "user": "Kim", "rating": 5, "comment": "아주 좋아요" },
+            { "user": "Park", "rating": 4, "comment": "만족합니다" }
+          ]
+        },
+        {
+          "productId": "A-02",
+          "name": "스마트폰",
+          "price": 900000,
+          "options": [],
+          "reviews": []
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "생활용품",
+      "products": [
+        {
+          "productId": "B-01",
+          "name": "청소기",
+          "price": 200000,
+          "options": [
+            { "color": "Red", "stock": 5 }
+          ],
+          "reviews": [
+            { "user": "Choi", "rating": 3, "comment": "그냥 그래요" }
+          ]
+        }
+      ]
+    }
+  ]
+}
