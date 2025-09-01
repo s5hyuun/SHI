@@ -9,6 +9,7 @@ function ShopList() {
     - 데이터 파일의 위치: public/shopData.json
     - 가져온 데이터를 categories state에 저장하세요.
   */
+
   useEffect(() => {
     fetch('public/shopData.json').then((res) => {
       return res.json()
