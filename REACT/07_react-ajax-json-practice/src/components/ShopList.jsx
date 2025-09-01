@@ -49,7 +49,7 @@ function ShopList() {
               <ul>
                 {category.products.map((product, i) => {
                   return (
-                    <li style={styles.product}>
+                    <li key={i} style={styles.product}>
 
                       {product.name} - {product.price.toLocaleString()} 원
                       <ul>
