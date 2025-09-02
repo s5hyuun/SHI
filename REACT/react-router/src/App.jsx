@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter, Routes, Route, Link, NavLink } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Link, NavLink, useParams, useLocation } from "react-router-dom";
 
 function Component1() {
   return <div>
@@ -16,24 +16,40 @@ function Component3() {
     3
     번 화면</div>
 }
+
+function ComponentN() {
+  const { number } = useParams();
+  return <div>(1~3제외) {number}번 화면</div>
+}
+function ComponentAZ() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const id = searchParams.get('id');
+  const name = searchParams.get('name');
+  return <div>ID-{id}, NAME-{name}</div>
+}
+
 function App() {
   return (
     <BrowserRouter>
       <div>
         <h1>React Router DOM</h1>
-        <a href='/1'>1번으로 이동</a> /&nbsp;
+        {/* <a href='/1'>1번으로 이동</a> /&nbsp;
         <a href='/2'>2번으로 이동</a> /&nbsp;
         <a href='/3'>3번으로 이동</a>
         <hr/>
         <Link to='/1'>1번으로 이동</Link> /&nbsp;
         <Link to='/2'>2번으로 이동</Link> /&nbsp;
         <Link to='/3'>3번으로 이동</Link>
-        <hr/>
+        <hr/> */}
         <NavLink to='/1'>1번으로 이동</NavLink> /&nbsp;
         <NavLink to='/2'>2번으로 이동</NavLink> /&nbsp;
-        <NavLink to='/3'>3번으로 이동</NavLink>
+        <NavLink to='/3'>3번으로 이동</NavLink> /&nbsp;
+        <Link to='/4'>4번으로 이동</Link> /&nbsp;
+        <Link to='/5'>5번으로 이동</Link>
 
         <Routes>
+          <Route path='/a' element={<ComponentAZ />} />
           <Route path='/1' element={<Component1 />} />
           <Route path='/2' element={<Component2 />} />
           <Route path='/3' element={<Component3 />} />
