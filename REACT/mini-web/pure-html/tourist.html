@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>거제 관광지 정보</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+
+    .App {
+      width: 600px;
+      background: white;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: #333;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px;
+      text-align: center;
+    }
+
+    header p {
+      margin-top: 8px;
+      font-size: 14px;
+    }
+
+    form {
+      margin: 16px;
+      text-align: center;
+    }
+
+    form input {
+      padding: 8px;
+      width: 250px;
+      margin-right: 8px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      border: 1px solid #ddd;
+      margin: 8px;
+      padding: 12px;
+      border-radius: 6px;
+      background: #f9f9f9;
+    }
+
+    li .summary {
+      margin: 6px 0;
+      color: #555;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+    }
+
+    .pagination {
+      text-align: center;
+      margin: 20px;
+    }
+
+    .pagination button {
+      margin: 4px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+    }
+
+    .pagination .active {
+      border: 2px solid #4CAF50;
+      background-color: #E8F5E9;
+    }
+  </style>
+</head>
+<body>
+  <div class="App">
+    <!-- NavBar -->
+    <nav>
+      <a href="#">명절/휴일 주차장</a>
+      <a href="#">거제 관광지 정보</a>
+    </nav>
+
+    <!-- Header -->
+    <header>
+      <h2>거제 관광지 정보</h2>
+      <p>현재 검색: 전체 | 총 33건 | 총 4페이지</p>
+    </header>
+
+    <!-- SearchBox -->
+    <form>
+      <input type="text" placeholder="검색어 입력" />
+      <button type="submit">검색</button>
+    </form>
+
+    <!-- Tourist List -->
+    <ul>
+      <li>
+        <h3>거제 외간리 동백나무</h3>
+        <p>📍 경상남도 거제시 거제면 외간4길 5</p>
+        <p>☎ 055-639-3404</p>
+        <p class="summary">
+          동백나무는 차나뭇과에 속하는 상록 활엽 교목으로 높이가 약 7m이고 겨울에 꽃이 핀다고 하여 동백[冬柏]이라고 부른다...
+        </p>
+        <p>🅿 주차: 가능</p>
+        <p>유모차: 없음</p>
+      </li>
+    </ul>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button>&laquo;</button>
+      <button>&lt;</button>
+      <button class="active">1</button>
+      <button>2</button>
+      <button>3</button>
+      <button>4</button>
+      <button>5</button>
+      <button>6</button>
+      <button>7</button>
+      <button>8</button>
+      <button>9</button>
+      <button>10</button>
+      <button>&gt;</button>
+      <button>&raquo;</button>
+    </div>
+  </div>
+</body>
+</html>
