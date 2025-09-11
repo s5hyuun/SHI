@@ -14,8 +14,6 @@ const saveUser = async (id, name, age) => {
     console.log(rows);  // ③ 실행결과 출력
   } catch (e) {
     console.error('조회 실패:', e.message);
-  } finally {
-    await pool.end();  // ④ 데이터베이스 연결 해제
   }
 };
 
@@ -27,6 +25,8 @@ const server = http.createServer((req, res) => {
     const name = query.name;
     const age = query.age;
     saveUser(id, name, age); // DB에 insert
+
+    res.end("등록이 완료 되었습니다.")
 });
 
 server.listen(3000, () => {
