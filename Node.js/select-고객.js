@@ -7,13 +7,14 @@ const pool = mysql.createPool({
   waitForConnections: true, connectionLimit: 10,
 })
 
-// 조회할 떄 조건이 없으므로 함수의 미개변수도 없다 
+// 조회할 떄 조건이 없으므로 함수의 매개변수도 없다 
 // 비동기 함수
 const getUsers = async (search) => {
   try {
     const [rows] = 
         await pool.query( 
-            'SELECT * FROM 고객 WHERE 이름 = ? OR 직업 = ?', [search, search]
+            // WHERE 이름 LIKE CONCAT('%', ?, '%') OR 직업 LIKE CONCAT('%', ?, '%')
+            'SELECT * FROM 고객 WHERE 이름 LIKE ? OR 직업 LIKE ?', ['%'+ search + '%', `%${search}%']`]
         );  
     return rows;
   } catch (e) {
@@ -22,8 +23,8 @@ const getUsers = async (search) => {
 };
 
 const server = http.createServer(async (req, res) => {
-    const url객체 = url.parse(req.url, true);
-    const query = url객체.query;
+    const obj = url.parse(req.url, true);
+    const query = obj.query;
     const search = query.search;
 
     // 고객명, 등급, 나이, ...

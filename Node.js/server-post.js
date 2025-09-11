@@ -6,7 +6,6 @@ const server = http.createServer((req, res) => {
         req.on('data', chunk => {
             console.log(chunk);
             
-
             body += chunk;
         });
         req.on('end', () => {
