@@ -3,8 +3,8 @@ import url from 'url';
 const server = http.createServer((req, res) => {
     if (req.method === 'GET') {
         const parsedUrl = url.parse(req.url, true); // true → 객체로 파싱
-        const pathname = parsedUrl.pathname;
-        const query = parsedUrl.query;
+        const pathname = parsedUrl.pathname;        // user/select
+        const query = parsedUrl.query;              // {a: 1, b: 2}
 
         if (pathname === '/') {
             const name = query.name || '익명';
