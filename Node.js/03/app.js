@@ -1,7 +1,13 @@
 import express from 'express';
-import { logger } from './middleware/logger.js';
-
+import { logger } from './ middleware/logger.js';
 const app = express();
+
+app.use((req, res, next)=> {
+    console.log("미들웨어 동작");
+    // IP 확인 코드 나중에 작성 
+    res.status(403).send("접근 불가!");
+    next();
+})
 
 app.use(logger);
 
