@@ -26,7 +26,8 @@ export const getListByUnit = async (value) => {
       await pool.query(
         `SELECT * 
            FROM assembly_member
-          WHERE sch_unit_cd LIKE CONCAT('%', ?, '%')`
+          ORDER BY row_num ASC
+          LIMIT 0, 50`
       , [value]); // > ? 부분에 들어갈 값 : [value] 
     return rows;
   } catch (e) {
