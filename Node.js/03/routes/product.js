@@ -12,4 +12,5 @@ router.get('/:id', (req, res) => {
     const id = req.params.id;
     res.send(`상품 상세 페이지 – ${id}번 상품`);
 });
+
 export default router;
