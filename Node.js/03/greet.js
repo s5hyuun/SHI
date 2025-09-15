@@ -3,7 +3,7 @@ import { Router } from 'express';
 const router = Router();
 
 router.get('/:name', (req, res) => {
-    const { name } = req.params;
+    const name = req.params.name;
     if (!name) {
         return res.status(404).send('이름이 없습니다');
     }
