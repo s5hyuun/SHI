@@ -6,7 +6,7 @@ const __dirname = import.meta.dirname;
 const app = express();
 
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views"));
+app.set("views", path.join(__dirname));
 
 app.get("/welcome", (req, res) => {
     const name = req.query.name
