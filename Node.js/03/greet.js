@@ -7,7 +7,7 @@ router.get('/:name', (req, res) => {
     if (!name) {
         return res.status(404).send('이름이 없습니다');
     }
-    res.send('<h2> 안녕하세요 ${name}님! </h2>');
+    res.send(`<h2> 안녕하세요, ${name}님! </h2>`);
 });
 
 export default router;
