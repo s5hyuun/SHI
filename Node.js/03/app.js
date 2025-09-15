@@ -1,6 +1,9 @@
 import express from 'express';
 import { logger } from './ middleware/logger.js';
 import { checkIp } from './ middleware/logger-ip.js';
+import userRouter from './routes/user.js';
+import productRouter from './roures/product.js';
+
 const app = express();
 
 app.use((req, res, next)=> {
@@ -14,15 +17,18 @@ app.use((req, res, next)=> {
 });
 
 app.use(logger);
-app.use(checkIp)
+app.use(checkIp);
+
+app.use('/user', userRouter);
+app.use('/product', userRouter);
 
 app.get('/', (req, res) => {
     res.status(200).type('html').send('<h1>Hello, Express!</h1>');
 });
 
-app.get('/user', (req, res) => {
-    res.status(200).type('html').send('<h1>Hello, Express!</h1>');
-});
+// app.get('/user', (req, res) => {
+//     res.status(200).type('html').send('<h1>Hello, Express!</h1>');
+// });
 
 app.listen(3000, () => {
     console.log('http://localhost:3000 실행 중');
