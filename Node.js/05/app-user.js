@@ -10,7 +10,7 @@ app.set("views", path.join(__dirname, "views"));
 
 app.get("/welcome", (req, res) => {
     const name = req.query.name
-    res.render('welcome', {name: `${name}`} )
+    res.render('welcome', {name: name} ) // {name: `${name}`}
 });
 
 app.listen(3000, () => {
