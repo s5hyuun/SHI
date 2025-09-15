@@ -1,8 +1,8 @@
 import express from 'express';
-import unitRouter from './assembly-member/routes/unit.js';
-import nameRouter from './assembly-member/routes/name.js';
-import districtRouter from './assembly-member/routes/district.js';
-import { getListAll } from './assembly-member/db.js';
+import unitRouter from './routes/unit.js';
+import nameRouter from './routes/name.js';
+import districtRouter from './routes/district.js';
+import { getListAll } from './db.js';
 
 const app = express();
 

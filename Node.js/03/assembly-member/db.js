@@ -27,7 +27,7 @@ export const getListByUnit = async (value) => {
         `SELECT * 
            FROM assembly_member
           WHERE sch_unit_cd LIKE CONCAT('%', ?, '%')`
-      , [value]);
+      , [value]); // > ? 부분에 들어갈 값 : [value] 
     return rows;
   } catch (e) {
     console.error('조회 실패:', e.message);
