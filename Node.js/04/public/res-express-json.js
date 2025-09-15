@@ -11,7 +11,7 @@ app.get("/down1", (req, res) => {
     console.log( path.resolve() ); // node를 실행한 위치 
     console.log( import.meta.dirname ); // 실행되는 파일의 경로
 
-    // res.download( path.xresolve() + "04/public/example,txt");
+    // res.download( path.resolve() + "04/public/example,txt");
 
     res.download( path.join(path.resolve(), '04', 'public', 'example.txt') );
 
@@ -26,7 +26,7 @@ app.get("/down1", (req, res) => {
     });
 
     // 3
-    
+
 
     // res.send("1");
 })
