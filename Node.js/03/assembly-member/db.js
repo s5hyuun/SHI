@@ -27,7 +27,7 @@ export const getListByUnit = async (value) => {
         `SELECT * 
            FROM assembly_member
           ORDER BY row_num ASC
-          LIMIT 0, 50`
+          LIMIT 0,`
       , [value]); // > ? 부분에 들어갈 값 : [value] 
     return rows;
   } catch (e) {

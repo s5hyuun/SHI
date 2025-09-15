@@ -19,6 +19,6 @@ app.get('/', async (req, res) => {
   res.json(list);
 });
 
-app.listen(3000, () => {
+app.listen(3000, () => {s
   console.log('http://localhost:3000 서버 실행 중');
 });

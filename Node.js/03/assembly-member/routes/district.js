@@ -3,6 +3,7 @@ import { getListByDistrict } from '../db.js';
 const router = express.Router();
 
 router.get('/:district', async (req, res) => {
+  // 거제, 대전 지역구 검색 코드 
   const list = await getListByDistrict(req.params.district)
   res.json(list);
 });
