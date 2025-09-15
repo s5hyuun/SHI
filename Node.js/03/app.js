@@ -30,6 +30,14 @@ app.get('/', (req, res) => {
 //     res.status(200).type('html').send('<h1>Hello, Express!</h1>');
 // });
 
+// 국회의원 정보 조회
+app.get("/", async (req, res) => {
+  const list = await getListAll();
+  res.render("assembly_member", { list: list }
+  );
+});
+
+
 app.listen(3000, () => {
     console.log('http://localhost:3000 실행 중');
 });

@@ -4,6 +4,8 @@ import nameRouter from './routes/name.js';
 import districtRouter from './routes/district.js';
 import { getListAll } from './db.js';
 
+import path from "path";
+
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -19,6 +21,7 @@ app.get('/', async (req, res) => {
   res.json(list);
 });
 
-app.listen(3000, () => {s
+
+app.listen(3000, () => {
   console.log('http://localhost:3000 서버 실행 중');
 });

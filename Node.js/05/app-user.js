@@ -8,9 +8,15 @@ const app = express();
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-app.get("/welcome", (req, res) => {
-    const name = req.query.name
-    res.render('welcome', {name: `${name}`} )
+app.get("/welcome/:user", (req,res) => {
+    const name = req.query.name;
+    const user = req.params.user;
+    res.render(
+        'welcome', {
+            name: `${name}`,
+            items: ["apple", "banana", "cherry"],
+        } 
+    );
 });
 
 app.listen(3000, () => {
