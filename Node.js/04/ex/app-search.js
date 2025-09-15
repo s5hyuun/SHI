@@ -21,7 +21,8 @@ app.post('/signup', (req, res) => {
 
 app.post('/profile', (req, res) => {
     const { name, age } = req.body;
-    res.json(`<h2> message: ${name} 님(${age}) 프로필 등록 완료 </h2> `);
+    res.send(`<h2> message: ${name} 님(${age}) 프로필 등록 완료 </h2> `);
+    // res.json(JSON.parse(` message: ${name} 님(${age}) 프로필 등록 완료 `));
 });
 
 app.listen(3000);
