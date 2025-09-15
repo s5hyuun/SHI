@@ -9,12 +9,15 @@ app.use(express.json());
 app.get('/search', (req, res) => {
     const data = req.query.q
     res.send(`<h2> ${data} 검색 완료 </h2>`);
+
+    // const {q} = req.qeury;
+    // res.send(`<h2> ${q} 검색 완료 </h2>`);
 });
 
 // POST 
 app.post('/signup', (req, res) => {
     const data = req.body
-    res.send(`<h2> ${data.username}님 (${data.age}), 회원가입 완료! </h2>`)
+    res.send(`<h2> ${data.name}님(${data.age}), 회원가입 완료! </h2>`)
 });
 
 app.post('/profile', (req, res) => {
