@@ -1,9 +1,8 @@
-import express from 'express';
+import express, { json, urlencoded } from 'express';
 
 const app = express();
-
-app.use(express.urlencoded());
-app.use(express.json());
+app.use(urlencoded());
+app.use(json());
 
 
 app.get('/search', (req, res) => {
@@ -16,14 +15,13 @@ app.get('/search', (req, res) => {
 
 // POST 
 app.post('/signup', (req, res) => {
-    const data = req.body
-    res.send(`<h2> ${data.name}님(${data.age}), 회원가입 완료! </h2>`)
+    const { username, age} = req.body;
+    res.send(`<h2> ${username}님(${age}), 회원가입 완료! </h2>`)
 });
 
 app.post('/profile', (req, res) => {
     const { name, age } = req.body;
     res.json(`<h2> message: ${name} 님(${age}) 프로필 등록 완료 </h2> `);
 });
-
 
 app.listen(3000);
