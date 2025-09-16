@@ -32,4 +32,3 @@ app.get('/news', (req, res) => {
 app.listen(3000, () => {
   console.log(' 뉴스 페이지 서버 실행 중: http://localhost:3000/news');
 });
-
