@@ -9,7 +9,8 @@ const pool = mysql.createPool({
 const createmember = async () => {
     const sql = `CREATE TABLE IF NOT EXISTS members (
  id INT PRIMARY KEY AUTO_INCREMENT,
- name VARCHAR(50), age INT)`;
+ name VARCHAR(50), age INT,
+ email VARCHAR(100))`;
     try {
         await pool.query(sql);
         console.log("테이블 생성 완료");
@@ -23,9 +24,9 @@ const createmember = async () => {
 // createmember();
 
 const insertmember = async () => {
- const sql = 'INSERT INTO members (name, age) VALUES (?, ?)';
+ const sql = 'INSERT INTO members (name, age, email) VALUES (?, ?)';
  try {
- const [result] = await pool.query(sql, ['KSH', 23]);
+ const [result] = await pool.query(sql, ['KSH', 23, 'wendy132@naver.com']);
  console.log('삽입 완료:', result);
  } catch (e) {
  console.error('삽입 실패:', e.message);
