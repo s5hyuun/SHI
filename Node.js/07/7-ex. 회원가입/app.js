@@ -8,7 +8,7 @@ const app = express();
 // 코드 작성 - body parser
 app.use(express.urlencoded());
 // 코드 작성 - static 등록
-app.use(express.static(path.join(__dirname), 'public'));
+app.use(  express.static(  path.join(__dirname, 'public')  )  );
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
