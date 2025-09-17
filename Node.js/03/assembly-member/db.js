@@ -64,6 +64,13 @@
 // };
 
 // 국회의원 정보 조회
+
+const pool = mysql.createPool({
+    host: 'localhost', user: 'root', password: '1234',
+    database: 'mydb',
+    waitForConnections: true, connectionLimit: 10,
+});
+
 export const getListAll = async () => {
   try {
     const [rows] = await pool.query(
