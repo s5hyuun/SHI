@@ -32,7 +32,21 @@ router.post('/signin', async (req, res) => {
 router.get('/welcome', (req, res) => {
   // 코드 작성 - 로그인하지 않고 접근한다면 /member/signin 으로 리다이렉트
   const user = req.session && req.session.user;
-  
+  if(!user) {
+    // 로그인 하지 않고 /member/welcom 으로 접속할 경우 redirect # 1
+    // res.send(`
+    //   <script>
+    //     alert('로그인 후 사용해주세요');
+    //     location = '/member/signin';
+    //   </script>
+    //   `);
+
+    // 로그인 하지 않고 /member/welcom 으로 접속할 경우 redirect # 2
+    res.render('forbidden');
+
+    // res.redirect('/member/signin');
+    return;
+  }
   res.send(`<h2>${user.name}님 환영합니다!</h2><a href="/member/logout">로그아웃</a>`);
 });
 
