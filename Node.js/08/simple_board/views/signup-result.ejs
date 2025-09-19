@@ -1,0 +1,8 @@
+<% if (success) { %>
+  <h2>🎉 <%= username %>님, 회원가입이 완료되었습니다!</h2>
+  <p class="message"><a href="/signin">로그인 하러 가기</a></p>
+<% } else { %>
+  <h2>⚠️ 회원가입에 실패했습니다</h2>
+  <p class="message">오류: <%= error %></p>
+  <p class="message"><a href="/signup">다시 시도하기</a></p>
+<% } %>

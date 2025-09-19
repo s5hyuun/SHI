@@ -1,0 +1,13 @@
+<h2>📝 글 수정</h2>
+
+<form method="POST" action="/board/<%= article.id %>/edit">
+  <label>제목</label>
+  <input type="text" name="title" value="<%= article.title %>" required />
+
+  <label>내용</label>
+  <textarea name="content" rows="8" required><%= article.content %></textarea>
+
+  <button type="submit">수정 완료</button>
+</form>
+
+<p class="message"><a href="/board/<%= article.id %>">← 돌아가기</a></p>

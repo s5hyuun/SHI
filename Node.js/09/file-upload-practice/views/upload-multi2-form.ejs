@@ -1,0 +1,10 @@
+<h2>다양한 필드 업로드 (fields)</h2>
+<form action="/multi2" method="post" enctype="multipart/form-data">
+  <label>사진 (제한없음)</label><br />
+  <input type="file" name="photos" multiple /><br/><br/>
+
+  <label>아바타 이미지 (1개)</label><br />
+  <input type="file" name="avatar" required /><br/><br/>
+
+  <button type="submit">업로드</button>
+</form>

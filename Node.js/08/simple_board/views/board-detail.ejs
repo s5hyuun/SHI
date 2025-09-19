@@ -1,0 +1,66 @@
+<h2><%= article.title %></h2>
+<p style="color: gray;">
+  작성자: <strong><%= article.writer %></strong> |
+  작성일: <%= new Date(new Date(article.created_at).getTime() + 9 * 60 * 60 * 1000)
+                .toLocaleString('ko-KR') %>
+  조회수: <%= article.views %>
+</p>
+
+<div style="margin-top: 20px; white-space: pre-wrap;">
+  <%= article.content %>
+</div>
+
+<div style="margin-top: 20px; white-space: pre-wrap;">
+  <img src="/uploads/<%= file.save_name %>">
+</div>
+
+<p>
+  👍 좋아요: <%= article.likes %> &nbsp;
+  👎 싫어요: <%= article.dislikes %>
+</p>
+
+<% if (user) { %>
+  <p>
+    <a href="/board/<%= article.id %>/like">👍 좋아요</a> |
+    <a href="/board/<%= article.id %>/dislike">👎 싫어요</a>
+  </p>
+<% } %>
+
+<% if (user && user.username === article.writer) { %>
+  <p style="text-align: right;">
+    <a href="/board/<%= article.id %>/edit">✏️ 수정</a>
+    |
+    <a href="/board/<%= article.id %>/delete" onclick="return confirm('정말 삭제하시겠습니까?');">
+      🗑️ 삭제
+    </a>
+  </p>
+<% } %>
+
+<p class="message"><a href="/board">← 목록으로 돌아가기</a></p>
+
+<h3>💬 댓글 (<%= article.comment_count %>)</h3>
+
+<% if (comments.length === 0) { %>
+  <p class="message">등록된 댓글이 없습니다.</p>
+<% } else { %>
+  <ul>
+    <% comments.forEach(c => { %>
+      <li style="margin-bottom: 8px;">
+        <strong><%= c.username %></strong>:
+        <%= c.content %>
+        <small style="color: gray; margin-left: 10px;">
+          <%= new Date(new Date(c.created_at).getTime() + 9 * 60 * 60 * 1000).toLocaleString('ko-KR') %>
+        </small>
+      </li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<% if (user) { %>
+  <form method="POST" action="/board/<%= article.id %>/comment" style="margin-top: 20px;">
+    <textarea name="content" rows="3" required placeholder="댓글을 입력하세요"></textarea>
+    <button type="submit">댓글 작성</button>
+  </form>
+<% } else { %>
+  <p class="message">댓글을 작성하려면 <a href="/signin">로그인</a> 해주세요.</p>
+<% } %>

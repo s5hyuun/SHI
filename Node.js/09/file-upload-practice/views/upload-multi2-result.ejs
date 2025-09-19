@@ -1,0 +1,18 @@
+<h2>업로드 결과</h2>
+
+<p>사진</p>
+<% if (photos.length > 0) { %>
+  <% photos.forEach(photo => { %>
+    <img src="/uploads/<%= photo %>" width="150" style="margin-right: 10px;" />
+  <% }) %>
+<% } else { %>
+  <p>없음</p>
+<% } %>
+
+<p>아바타</p>
+<% if (avatar) { %>
+  <img src="/uploads/<%= avatar %>" width="150" />
+<% } else { %>
+  <p>없음</p>
+<% } %>
+

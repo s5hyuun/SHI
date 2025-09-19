@@ -1,0 +1,80 @@
+/* 전체 배경과 기본 폰트 */
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
+
+/* 가운데 정렬된 컨테이너 */
+.container {
+  width: 400px;
+  margin: 50px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+}
+
+/* 폼 구성 */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* 버튼 스타일 */
+button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #0066cc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0055aa;
+}
+
+/* 링크 스타일 */
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 메시지나 안내 문구를 위한 여유 공간 */
+.message {
+  margin-top: 15px;
+  color: #555;
+}
+
+.top-bar {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 14px;
+  text-align: right;
+}

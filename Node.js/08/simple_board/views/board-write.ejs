@@ -1,0 +1,17 @@
+<h2>✏️ 글쓰기</h2>
+
+<form method="POST" action="/board/write"
+      enctype="multipart/form-data">
+  <label>제목</label>
+  <input type="text" name="title" required />
+
+  <label>내용</label>
+  <textarea name="content" rows="8" required></textarea>
+
+  <label>첨부파일</label>
+  <input type="file" name="f" required />
+
+  <button type="submit">작성하기</button>
+</form>
+
+<p class="message"><a href="/board">← 목록으로 돌아가기</a></p>

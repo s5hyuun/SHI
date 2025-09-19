@@ -1,0 +1,45 @@
+<h2>📋 게시판</h2>
+
+<% if (user) { %>
+  <p style="text-align: right;"><a href="/board/write">+ 새 글 쓰기</a></p>
+<% } %>
+
+<% if (articles.length === 0) { %>
+  <p class="message">작성된 글이 없습니다.</p>
+<% } else { %>
+  <table border="1" cellspacing="0" cellpadding="8" width="100%">
+    <tr>
+      <th>번호</th>
+      <th>제목</th>
+      <th>작성자</th>
+      <th>작성일</th>
+      <th>조회수</th>
+    </tr>
+    <% articles.forEach(article => { %>
+      <tr>
+        <td><%= article.id %></td>
+        <td><a href="/board/<%= article.id %>"><%= article.title %></a></td>
+        <td><%= article.writer %></td>
+        <td>
+          <%= 
+            new Date(
+              new Date(article.created_at).getTime() + 9 * 60 * 60 * 1000
+            ).toLocaleString('ko-KR') 
+          %>
+        </td>
+        <td><%= article.views %></td> <!-- 조회수 추가 -->
+      </tr>
+    <% }) %>
+  </table>
+
+  <!-- page =1 startPage=1 endPage=10 -->
+  <!-- page =13 startPage=11 endPage=20 -->
+  <!-- page =1344 startPage=1341 endPage=1350 -->
+   <!-- Math.floor(startPage / 10) * 10 + 1 -->
+   <% for (let i = startPage; i <= endPage; i++) {%>
+    <a herf=""> 
+      <% i %>
+    </a> 
+    &nbsp;
+  <% } %>
+<% } %>
