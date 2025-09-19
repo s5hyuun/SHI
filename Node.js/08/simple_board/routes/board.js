@@ -23,6 +23,9 @@ const router = express.Router();
 
 // 게시글 목록 보기
 router.get('/', async (req, res) => {
+  // http://localhost:3000/board?q=검색어
+  const q = req.query.q || '';
+
   // http://localhost:3000/board?page=1
   const page = req.query.page || 1;
 
@@ -31,14 +34,21 @@ router.get('/', async (req, res) => {
   // page = 2    start = 10.    (11-20) 
   // page = 213  start = 2120   (2121-2130)
   let start = (page * 10) - 9;
-  let startPage = Math.floor(page / 10) * 10 + 1;
+  let startPage = Math.floor((page-1) / 10) * 10 + 1;
   let endPage = startPage + 9;
 
   try {
-    const sql = 'SELECT id, title, writer, created_at, views FROM articles ORDER BY id DESC';
-    const [articles] = await pool.query(sql);
+    const sql2 = 'SELECT count(1) AS cnt FROM articles';
+    const [totalCount] = await pool.query(sql2);
+    console.log(totalCount);
+    const totalPage = Math.ceil(totalCount[0].cnt / 10);
+    // endPage 가 10, 전체 페이지가 4
+    endPage = endPage>totalPage ? totalPage : endPage;
 
-    res.render('board-list', { articles, startPage, endPage });
+    const sql = 'SELECT id, title, writer, created_at, views FROM articles WHERE title LIKE CONCAT('%', ?, '%') ORDER BY id DESC LIMIT ?, 10';
+    const [articles] = await pool.query(sql, [q, start-1]);
+
+    res.render('board-list', { articles, startPage, endPage, totalCount, totalCount: totalCount[0].cnt });
   } catch (err) {
     console.error('게시글 목록 조회 오류:', err.message);
     res.send('<h2>게시글을 불러오는 데 실패했습니다.</h2>');
